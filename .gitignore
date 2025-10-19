@@ -1,0 +1,49 @@
+# General
+.DS_Store
+Thumbs.db
+
+# Node / frontend
+node_modules/
+dist/
+build/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# PowerShell local data
+*.psd1
+*.pssc
+
+# Logs & dumps
+*.log
+logs/
+*.csv
+
+# IDEs / editors
+.vscode/
+.idea/
+*.code-workspace
+
+# OS
+.desktop
+.Icon?
+
+# Terraform/Infra (if used)
+.terraform/
+*.tfstate
+*.tfstate.*
+.crash/
+
+# Archives
+*.zip
+*.tar
+*.gz
+
+# Security
+secrets.*
+*.key
+*.pfx
+*.pem

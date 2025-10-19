@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "displayName": "Assign: Cost Governance \u2014 Tagging Standard",
+    "description": "Requires and inherits standard tags",
+    "policyDefinitionId": "[subscription().id]/providers/Microsoft.Authorization/policySetDefinitions/cost-governance",
+    "enforcementMode": "Default",
+    "parameters": {},
+    "nonComplianceMessages": [
+      {
+        "message": "Resources must include required cost tags."
+      }
+    ]
+  },
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "location": "westeurope"
+}

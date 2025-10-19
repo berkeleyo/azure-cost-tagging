@@ -1,0 +1,46 @@
+{
+  "properties": {
+    "displayName": "Require specified tags on resources",
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "parameters": {
+      "tagKeys": {
+        "type": "Array",
+        "metadata": {
+          "displayName": "Required tag keys"
+        },
+        "defaultValue": [
+          "costCenter",
+          "owner",
+          "env",
+          "service"
+        ]
+      }
+    },
+    "policyRule": {
+      "if": {
+        "anyOf": [
+          {
+            "field": "tags['costCenter']",
+            "exists": "false"
+          },
+          {
+            "field": "tags['owner']",
+            "exists": "false"
+          },
+          {
+            "field": "tags['env']",
+            "exists": "false"
+          },
+          {
+            "field": "tags['service']",
+            "exists": "false"
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+  }
+}

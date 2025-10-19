@@ -1,0 +1,22 @@
+{
+  "properties": {
+    "displayName": "Cost Governance \u2014 Tagging Standard",
+    "policyType": "Custom",
+    "metadata": {
+      "category": "Cost Management"
+    },
+    "parameters": {},
+    "policyDefinitions": [
+      {
+        "policyDefinitionReferenceId": "require-tags",
+        "policyDefinitionId": "[subscription().id]/providers/Microsoft.Authorization/policyDefinitions/require-tags",
+        "parameters": {}
+      },
+      {
+        "policyDefinitionReferenceId": "inherit-tags",
+        "policyDefinitionId": "[subscription().id]/providers/Microsoft.Authorization/policyDefinitions/inherit-tags",
+        "parameters": {}
+      }
+    ]
+  }
+}

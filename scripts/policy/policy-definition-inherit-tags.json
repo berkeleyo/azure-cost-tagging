@@ -1,0 +1,57 @@
+{
+  "properties": {
+    "displayName": "Inherit tags from resource group",
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "parameters": {
+      "tagKeys": {
+        "type": "Array",
+        "metadata": {
+          "displayName": "Tag keys to inherit"
+        },
+        "defaultValue": [
+          "costCenter",
+          "owner",
+          "env",
+          "service"
+        ]
+      }
+    },
+    "policyRule": {
+      "if": {
+        "field": "type",
+        "notLike": "Microsoft.Resources/subscriptions/resourceGroups"
+      },
+      "then": {
+        "effect": "modify",
+        "details": {
+          "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/fd1bd22b-87d3-42a4-8b27-3adb4c8fc9bd"
+          ],
+          "operations": [
+            {
+              "operation": "addOrReplace",
+              "field": "tags['costCenter']",
+              "value": "[resourceGroup().tags['costCenter']]"
+            },
+            {
+              "operation": "addOrReplace",
+              "field": "tags['owner']",
+              "value": "[resourceGroup().tags['owner']]"
+            },
+            {
+              "operation": "addOrReplace",
+              "field": "tags['env']",
+              "value": "[resourceGroup().tags['env']]"
+            },
+            {
+              "operation": "addOrReplace",
+              "field": "tags['service']",
+              "value": "[resourceGroup().tags['service']]"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

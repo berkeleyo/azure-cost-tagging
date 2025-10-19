@@ -1,0 +1,29 @@
+{
+  "requiredKeys": [
+    "costCenter",
+    "owner",
+    "env",
+    "service",
+    "businessUnit",
+    "retention"
+  ],
+  "allowedValues": {
+    "env": [
+      "prod",
+      "nonprod",
+      "dev",
+      "test",
+      "sandbox"
+    ],
+    "retention": [
+      "30d",
+      "90d",
+      "180d",
+      "365d"
+    ]
+  },
+  "validation": {
+    "owner": "must be a routable email address",
+    "costCenter": "org-defined pattern e.g. CC-1234"
+  }
+}
