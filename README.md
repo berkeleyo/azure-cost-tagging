@@ -59,7 +59,7 @@ A clean, production-ready implementation to standardize, enforce, and report **A
 
 ---
 
-## Solution overview (Mermaid)
+## 🪄 Solution Overview (Mermaid)
 
 ```mermaid
 flowchart LR
@@ -71,6 +71,7 @@ flowchart LR
   F --> G["Azure Cost Management<br/>& FinOps Reports"]
   G --> H["Showback / Chargeback"]
   H -->|Feedback| A
+
 
 ---
 
