@@ -1,9 +1,9 @@
-# Azure Cost Tagging & Governance 🏷️💸
+﻿# Azure Cost Tagging & Governance ðŸ·ï¸ðŸ’¸
 
 ![Redaction Badge](https://img.shields.io/badge/REDACTED-No%20secrets%20or%20tenant%20info-green)
 > **Redaction statement:** This repository is **fully redacted**. It contains **no secrets, IP addresses, tenant IDs, subscription IDs, hostnames, or organization identifiers**. All values are placeholders intended for safe sharing.
 
-A clean, production-ready implementation to standardize, enforce, and report **Azure cost tags** across subscriptions and resource groups. It includes design guidance, ready-to-run scripts, Azure Policy JSON, and operational runbooks—built to be cloned, adapted, and deployed safely.
+A clean, production-ready implementation to standardize, enforce, and report **Azure cost tags** across subscriptions and resource groups. It includes design guidance, ready-to-run scripts, Azure Policy JSON, and operational runbooksâ€”built to be cloned, adapted, and deployed safely.
 
 ---
 
@@ -20,42 +20,42 @@ A clean, production-ready implementation to standardize, enforce, and report **A
 
 ```
 .
-├─ README.md
-├─ RUNBOOK.md
-├─ .gitignore
-├─ docs/
-│  ├─ OVERVIEW.md
-│  ├─ ARCHITECTURE.md
-│  ├─ CUTOVER_CHECKLIST.md
-│  ├─ ROLLBACK.md
-│  └─ SECURITY.md
-└─ scripts/
-   ├─ pwsh/
-   │  ├─ discover-tags.ps1
-   │  ├─ enforce-tags.ps1
-   │  ├─ remediate-untagged.ps1
-   │  └─ report-cost-by-tag.ps1
-   ├─ bash/
-   │  └─ discover-tags.sh
-   ├─ policy/
-   │  ├─ policy-definition-require-tags.json
-   │  ├─ policy-definition-inherit-tags.json
-   │  ├─ policy-initiative-cost-governance.json
-   │  └─ policy-assignment-example.json
-   └─ examples/
-      └─ sample-tag-schema.json
+â”œâ”€ README.md
+â”œâ”€ RUNBOOK.md
+â”œâ”€ .gitignore
+â”œâ”€ docs/
+â”‚  â”œâ”€ OVERVIEW.md
+â”‚  â”œâ”€ ARCHITECTURE.md
+â”‚  â”œâ”€ CUTOVER_CHECKLIST.md
+â”‚  â”œâ”€ ROLLBACK.md
+â”‚  â””â”€ SECURITY.md
+â””â”€ scripts/
+   â”œâ”€ pwsh/
+   â”‚  â”œâ”€ discover-tags.ps1
+   â”‚  â”œâ”€ enforce-tags.ps1
+   â”‚  â”œâ”€ remediate-untagged.ps1
+   â”‚  â””â”€ report-cost-by-tag.ps1
+   â”œâ”€ bash/
+   â”‚  â””â”€ discover-tags.sh
+   â”œâ”€ policy/
+   â”‚  â”œâ”€ policy-definition-require-tags.json
+   â”‚  â”œâ”€ policy-definition-inherit-tags.json
+   â”‚  â”œâ”€ policy-initiative-cost-governance.json
+   â”‚  â””â”€ policy-assignment-example.json
+   â””â”€ examples/
+      â””â”€ sample-tag-schema.json
 ```
 
 ---
 
 ## Lifecycle stages
 
-1. **Discover** → Inventory current tags; baseline gaps.
-2. **Design** → Define tag schema & ownership; choose enforcement scope.
-3. **Build** → Author policy (require + inherit); prepare initiatives & assignments.
-4. **Test** → Dry-run (Audit) in non-prod; validate exemptions.
-5. **Cutover** → Switch to Deny/Modify; run remediation tasks.
-6. **Operate** → Periodic reports; exception flow; continuous improvement.
+1. **Discover** â†’ Inventory current tags; baseline gaps.
+2. **Design** â†’ Define tag schema & ownership; choose enforcement scope.
+3. **Build** â†’ Author policy (require + inherit); prepare initiatives & assignments.
+4. **Test** â†’ Dry-run (Audit) in non-prod; validate exemptions.
+5. **Cutover** â†’ Switch to Deny/Modify; run remediation tasks.
+6. **Operate** â†’ Periodic reports; exception flow; continuous improvement.
 
 ---
 
@@ -63,26 +63,22 @@ A clean, production-ready implementation to standardize, enforce, and report **A
 
 ```mermaid
 flowchart LR
-    A[Stakeholders & FinOps] --> B(Tag Schema & Standards)
-    B --> C[Azure Policy
-(require + inherit)]
-    C --> D[Assignments at Mgmt Group / Subscription]
-    D --> E[Automated Remediation
-(Modify/DeployIfNotExists)]
-    E --> F[Consistent Resource Tags]
-    F --> G[Azure Cost Management
-& FinOps Reports]
-    G --> H[Showback / Chargeback]
-    H -->|Feedback| A
-```
+  A["Stakeholders & FinOps"] --> B["Tag Schema & Standards"]
+  B --> C["Azure Policy<br/>(require + inherit)"]
+  C --> D["Assignments at Mgmt Group / Subscription"]
+  D --> E["Automated Remediation<br/>(Modify or DeployIfNotExists)"]
+  E --> F["Consistent Resource Tags"]
+  F --> G["Azure Cost Management<br/>& FinOps Reports"]
+  G --> H["Showback / Chargeback"]
+  H -->|Feedback| A
 
 ---
 
 ## Getting started
 
-- 💻 **Scripts**: See `scripts/pwsh/*.ps1` and `scripts/bash/*.sh` (non-destructive by default).
-- 🛡️ **Policy**: Import JSON in `scripts/policy/` (definitions → initiative → assignment).
-- 📚 **Docs**: Start with `docs/OVERVIEW.md`, then `ARCHITECTURE.md`, then follow `RUNBOOK.md`.
+- ðŸ’» **Scripts**: See `scripts/pwsh/*.ps1` and `scripts/bash/*.sh` (non-destructive by default).
+- ðŸ›¡ï¸ **Policy**: Import JSON in `scripts/policy/` (definitions â†’ initiative â†’ assignment).
+- ðŸ“š **Docs**: Start with `docs/OVERVIEW.md`, then `ARCHITECTURE.md`, then follow `RUNBOOK.md`.
 
 > **Safety defaults**: Provided scripts favor **read-only** operations unless you pass `-WhatIf:$false` or `-Confirm:$false` explicitly. Review before running.
 
@@ -131,12 +127,13 @@ New-AzPolicyAssignment -Name "cost-governance-assignment" -Scope "/providers/Mic
 
 ## Trust & redaction
 
-- ✅ No secrets, IPs, tenant names, or organizational identifiers.
-- 🔐 Use your own secure secret store for creds/tokens (e.g., Azure Key Vault).
-- 🧪 All example IDs are **fabricated** / zero-value.
+- âœ… No secrets, IPs, tenant names, or organizational identifiers.
+- ðŸ” Use your own secure secret store for creds/tokens (e.g., Azure Key Vault).
+- ðŸ§ª All example IDs are **fabricated** / zero-value.
 
 ---
 
 ## License
 
-MIT — see `LICENSE` (add one if required by your org).
+MIT â€” see `LICENSE` (add one if required by your org).
+
